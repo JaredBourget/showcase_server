@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import HomeRoutes from './src/home/routes/routes.js';
 
 const app = express();
 
@@ -11,15 +12,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-// app.use((req, res) => {
-// 	res.setHeader('Content-Type', 'text/plain')
-// 	res.write('you posted:\n')
-// 	res.end(JSON.stringify(req.body, null, 2))
-// });
+// app.get('/', (req, res, next) => {
+// 	res.send('Docker is running')
+// })
 
-app.get('/', (req, res, next) => {
-	res.send('Docker is running')
-})
+app.use('/api/v1', HomeRoutes)
 
 app.listen(port, host, () => {
 	console.log(`Server is listening on http://${host}:${port}`)

@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon -r esm index.js",
     "build": "tsc --project ./",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:migrate": "npm knex migrate:latest",
-    "db:seed": "npm knex seed:run",
+    "db:migrate": "knex migrate:latest",
+    "db:seed": "knex seed:run",
     "db:make": "knex migrate:make"
   },
   "author": "",
