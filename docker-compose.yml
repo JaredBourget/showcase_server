@@ -1,0 +1,19 @@
+services:
+  api:
+    container_name: "node_backend"
+    build: .
+    depends_on:
+      - pg
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/usr/src/server
+
+  pg:
+    image: "postgres:12"
+    container_name: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: jared
+      POSTGRES_PASSWORD: postgres
