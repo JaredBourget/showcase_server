@@ -1,10 +1,13 @@
 import express from 'express';
-import getHomePage from '../controllers/ctrl.js'
+import HomePageRoutes from '../controllers/ctrl.js'
 
 const router = express.Router();
 
 router.route('/home')
-  .get(getHomePage);
+  .get(HomePageRoutes.getHomePage);
+
+router.route('/user')
+  .get(HomePageRoutes.getUser);
 
 const HomeRoutes = router;
 
