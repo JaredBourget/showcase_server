@@ -2,7 +2,7 @@ import TestTable from '../models/home.js'
 
 const getHomePage = async (req, res, next) => {
   TestTable.getHomeData().then(result => {
-    res.send(result)
+    res.status(401).send({})
   })
   // res.send('may need to change some postgres config files')
 }

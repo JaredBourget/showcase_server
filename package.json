@@ -8,6 +8,7 @@
     "build": "tsc --project ./",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:migrate": "knex migrate:latest",
+    "db:migrate:undo": "knex migrate:rollback",
     "db:seed": "knex seed:run",
     "db:make": "knex migrate:make"
   },
@@ -15,7 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-openid-connect": "^2.2.1",
     "knex": "^0.21.17",
     "nodemon": "^2.0.7",
     "objection": "^2.2.14",
