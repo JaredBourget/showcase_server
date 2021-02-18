@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import HomeRoutes from './src/home/routes/routes.js';
+import ProductRouter from './src/product/routes/routes.js';
+import UserRouter from './src/user/routes/routes.js';
 import Knex from 'knex';
 import cors from 'cors'
 import { development } from './knexfile.js';
@@ -46,7 +47,8 @@ app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
-app.use('/api/v1', HomeRoutes)
+app.use('/api/v1', ProductRouter)
+app.use('/api/v1', UserRouter)
 
 app.get('/user', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
