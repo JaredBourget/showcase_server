@@ -5,10 +5,10 @@ class User extends Model {
     return 'users';
   }
 
-  static async getUser() {
+  static async getUser(id) {
     let result;
     try {
-      result = await User.User().findById(1)
+      result = await User.query().findById(id)
     } catch (err) { throw err; }
     return result;
   } 
